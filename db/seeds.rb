@@ -36,7 +36,7 @@ end
 
 parse_csv('game_genres.csv').each do |row|
   GameGenre.create!(
-    game: Game.find_by(name: row['game']),
+    game: Game.find_by(title: row['game']),
     genre: Genre.find_by(name: row['genre'])
   )
 end
