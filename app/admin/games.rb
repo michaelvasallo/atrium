@@ -14,6 +14,26 @@ ActiveAdmin.register Game do
     actions
   end
 
+  show do
+    attributes_table do
+      # row :image do |game|
+      #   image_tag game.image
+      # end
+      row :title
+      row :description
+      row :price
+      row :release_date
+      row :developer
+      row :publisher
+      row :genres do |game|
+        game.genres.pluck(:name).join(', ')
+      end
+      row :created_at
+      row :updated_at
+    end
+    active_admin_comments
+  end
+
   form do |f|
     f.inputs do
       f.input :title
