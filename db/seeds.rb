@@ -33,3 +33,10 @@ parse_csv('games.csv').each do |row|
     publisher: Company.find_by(name: row['publisher'])
   )
 end
+
+parse_csv('game_genres.csv').each do |row|
+  GameGenre.create!(
+    game: Game.find_by(name: row['game']),
+    genre: Genre.find_by(name: row['genre'])
+  )
+end
