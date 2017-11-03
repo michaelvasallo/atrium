@@ -16,6 +16,10 @@ ActiveAdmin.register Game do
     actions
   end
 
+  index as: :grid do |game|
+    link_to image_tag(game.image), admin_game_path(game)
+  end
+
   show do
     attributes_table do
       row :image do |game|
@@ -38,7 +42,7 @@ ActiveAdmin.register Game do
 
   form do |f|
     f.inputs do
-      f.input :image, as: :file
+      f.input :image, as: :file, hint: image_tag(f.object.image)
       f.input :title
       f.input :description
       f.input :price
