@@ -8,4 +8,12 @@ class Game < ApplicationRecord
   validates :title, :description, :price, :release_date, :image, presence: true
 
   mount_uploader :image, ImageUploader
+
+  def on_sale?
+    discount.present?
+  end
+
+  def sale_price
+    on_sale? ? (price - price * discount).round(2) : price
+  end
 end

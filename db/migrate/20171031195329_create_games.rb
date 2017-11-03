@@ -3,7 +3,7 @@ class CreateGames < ActiveRecord::Migration[5.1]
     create_table :games do |t|
       t.string :title
       t.text :description
-      t.decimal :price
+      t.decimal :price, precision: 8, scale: 2
       t.decimal :discount
       t.date :release_date
       t.string :image

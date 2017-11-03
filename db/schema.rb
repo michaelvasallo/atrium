@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20171031202354) do
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.decimal "price"
+    t.decimal "price", precision: 8, scale: 2
     t.decimal "discount"
     t.date "release_date"
     t.string "image"
