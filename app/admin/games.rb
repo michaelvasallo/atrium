@@ -1,5 +1,7 @@
 ActiveAdmin.register Game do
-  permit_params :title, :description, :price, :release_date, :developer_id, :publisher_id, genre_ids: []
+  config.sort_order = 'title_asc'
+
+  permit_params :title, :description, :price, :release_date, :image, :developer_id, :publisher_id, genre_ids: []
 
   index do
     selectable_column
@@ -16,9 +18,9 @@ ActiveAdmin.register Game do
 
   show do
     attributes_table do
-      # row :image do |game|
-      #   image_tag game.image
-      # end
+      row :image do |game|
+        image_tag game.image
+      end
       row :title
       row :description
       row :price
@@ -36,6 +38,7 @@ ActiveAdmin.register Game do
 
   form do |f|
     f.inputs do
+      f.input :image, as: :file
       f.input :title
       f.input :description
       f.input :price
