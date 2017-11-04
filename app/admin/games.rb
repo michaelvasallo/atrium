@@ -35,7 +35,7 @@ ActiveAdmin.register Game do
       row :developer
       row :publisher
       row :genres do |game|
-        game.genres.pluck(:name).join(', ')
+        game.print_genres
       end
       row :created_at
       row :updated_at

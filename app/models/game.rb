@@ -16,4 +16,8 @@ class Game < ApplicationRecord
   def sale_price
     on_sale? ? (price - price * discount).round(2) : price
   end
+
+  def print_genres
+    genres.pluck(:name).join(', ')
+  end
 end

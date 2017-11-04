@@ -9,6 +9,6 @@
         .right.floated
           - if game.on_sale?
             .ui.grey.label
-              = number_to_percentage("-#{game.discount * 100}", precision: 0)
+              = number_to_percentage "-#{game.discount * 100}", precision: 0
           .ui.label
-            = number_to_currency(game.sale_price, unit: 'C$')
+            = number_to_currency game.sale_price, unit: 'C$'
