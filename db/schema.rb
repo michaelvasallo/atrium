@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20171031202354) do
     t.decimal "discount"
     t.date "release_date"
     t.string "image"
+    t.string "video"
     t.integer "developer_id"
     t.integer "publisher_id"
     t.datetime "created_at", null: false

@@ -31,6 +31,7 @@ parse_csv('games.csv').each do |row|
     discount: row['discount'],
     release_date: Date.parse(row['release_date']),
     image: Rails.root.join("public/uploads/game/image/#{row['image']}").open,
+    video: row['video'],
     developer: Company.find_by(name: row['developer']),
     publisher: Company.find_by(name: row['publisher'])
   )

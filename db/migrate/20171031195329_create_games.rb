@@ -7,6 +7,7 @@ class CreateGames < ActiveRecord::Migration[5.1]
       t.decimal :discount
       t.date :release_date
       t.string :image
+      t.string :video
       t.integer :developer_id
       t.integer :publisher_id
 

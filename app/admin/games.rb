@@ -31,6 +31,7 @@ ActiveAdmin.register Game do
       row :price
       row :discount
       row :release_date
+      row :video
       row :developer
       row :publisher
       row :genres do |game|
@@ -50,6 +51,7 @@ ActiveAdmin.register Game do
       f.input :price
       f.input :discount
       f.input :release_date
+      f.input :video
       f.input :developer
       f.input :publisher
       f.input :genre_ids, label: 'Genres', as: :check_boxes, collection: Genre.all
