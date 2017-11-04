@@ -1,6 +1,6 @@
-.ui.link.four.cards
+.ui.link.four.stackable.cards
   - @games.each do |game|
-    .card
+    = link_to game_path(game), class: 'card'
       .image
         = image_tag game.image
       .content
