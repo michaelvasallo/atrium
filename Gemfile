@@ -58,9 +58,5 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'carrierwave', '~> 1.0'
 gem 'devise'
 gem 'rubocop'
+gem 'semantic-ui-sass'
 gem 'slim-rails'
-
-# Semantic UI Gems
-gem 'autoprefixer-rails'
-gem 'less-rails-semantic_ui'
-gem 'therubyracer'

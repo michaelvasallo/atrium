@@ -13,6 +13,6 @@
 //= require jquery
 //= require rails-ujs
 //= require turbolinks
-//= require semantic_ui/semantic_ui
+//= require semantic-ui
 //= require_tree .
 //= require_tree ./games
