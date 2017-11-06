@@ -23,7 +23,8 @@
 .byebug_history
 
 # Ignore Semantic UI generated folders
-semantic/dist/
+semantic/dist/components
+semantic/dist/themes
 semantic/gulpfile.js
 semantic/src/definitions
 semantic/src/themes

@@ -17,6 +17,7 @@
                 = number_to_currency @game.price, unit: 'C$'
             = number_to_currency @game.sale_price, unit: 'C$'
           .ui.primary.button
+            i.shop.icon
             | Add to Cart
   .six.wide.column
     = image_tag @game.image, class: 'ui fluid image header'
