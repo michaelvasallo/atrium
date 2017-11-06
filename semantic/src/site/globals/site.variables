@@ -12,16 +12,16 @@
 @atrium-black        : #081920;
 @atrium-sky-blue     : #77C7F0;
 @atrium-blue         : #4093CD;
-@atrium-offwhite     : #F0F0F0;
+@atrium-offwhite     : #F5F5F5;
 
-@primaryColor        : @atrium-blue;
-@secondaryColor      : @atrium-black;
-@lightPrimaryColor   : @atrium-sky-blue;
-@lightSecondaryColor : @atrium-graphite;
-
+@black               : @atrium-black;
 @blue                : @atrium-blue;
+@white               : @atrium-offwhite;
 
 /* Page */
 @pageBackground      : darken(@atrium-offwhite, 5);
 @textColor           : @atrium-graphite;
 @linkColor           : @atrium-blue;
+
+/* Form */
+@inputPlaceholderColor: lighten(@inputColor, 60);

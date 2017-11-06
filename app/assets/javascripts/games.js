@@ -14,4 +14,4 @@ $(document).on('turbolinks:load', function() {
             $(this).find('.price-tag').removeClass('blue');
         }
     );
-})
+});

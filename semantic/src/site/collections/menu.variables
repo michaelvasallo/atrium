@@ -2,4 +2,5 @@
     User Variable Overrides
 *******************************/
 
+@background: @atrium-offwhite;
 @invertedBackground: rgba(26, 26, 26, 0.9);

@@ -1,6 +1,7 @@
+= render partial: 'filters'
 .ui.link.four.stackable.cards
   - @games.each do |game|
-    = link_to game_path(game), class: 'game card'
+    = link_to game_path(game), class: 'game raised card'
       .image
         = image_tag game.image
       .content

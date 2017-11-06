@@ -1,6 +1,3 @@
 /*******************************
     User Variable Overrides
 *******************************/
-
-@background: @atrium-offwhite;
-@linkHoverBackground: @background;
