@@ -9,14 +9,14 @@
           = "Buy #{@game.title}"
         .ui.right.floated.left.labeled.button
           - if @game.on_sale?
-            .ui.right.pointing.green.label
+            .ui.right.pointing.blue.label
               = number_to_percentage "-#{@game.discount * 100}", precision: 0
           .ui.basic.label
             - if @game.on_sale?
               span.original_price
                 = number_to_currency @game.price, unit: 'C$'
             = number_to_currency @game.sale_price, unit: 'C$'
-          .ui.green.button
+          .ui.primary.button
             | Add to Cart
   .six.wide.column
     = image_tag @game.image, class: 'ui fluid image header'

@@ -1,6 +1,6 @@
 .ui.link.four.stackable.cards
   - @games.each do |game|
-    = link_to game_path(game), class: 'card'
+    = link_to game_path(game), class: 'game card'
       .image
         = image_tag game.image
       .content
@@ -10,5 +10,5 @@
           - if game.on_sale?
             .ui.grey.label
               = number_to_percentage "-#{game.discount * 100}", precision: 0
-          .ui.label
+          .price-tag.ui.label
             = number_to_currency game.sale_price, unit: 'C$'
