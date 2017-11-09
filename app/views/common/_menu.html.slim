@@ -1,4 +1,4 @@
-.ui.huge.fixed.inverted.borderless.menu
+#navbar.ui.huge.fixed.inverted.borderless.menu
   .ui.container
-    = link_to image_tag('atrium-logomark'), '#', class: 'item'
-    = link_to 'Store', games_path, class: 'item'
+    = link_to image_tag('atrium-logo', id: 'logo'), '#', class: 'item'
+    = link_to 'Games', games_path, class: 'item'
