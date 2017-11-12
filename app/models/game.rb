@@ -9,6 +9,14 @@ class Game < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  def self.filter_by_genre name
+    if name && genre = Genre.where("lower(name) = ?", name.downcase).first
+      genre.games
+    else
+      all
+    end
+  end
+
   def on_sale?
     discount.present?
   end
