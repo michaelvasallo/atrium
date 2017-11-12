@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'games/', to: 'games#index', as: 'games'
+  get 'games/(:genre)', to: 'games#index', as: 'games'
 
   get 'game/:id', to: 'games#show', as: 'game', id: /\d+/
 

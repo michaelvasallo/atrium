@@ -1,6 +1,10 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    if params[:genre] && genre = Genre.where("lower(name) = ?", params[:genre].downcase).first
+      @games = genre.games
+    else
+      @games = Game.all
+    end
   end
 
   def show

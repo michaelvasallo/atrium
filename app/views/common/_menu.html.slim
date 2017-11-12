@@ -1,4 +1,11 @@
 #navbar.ui.huge.fixed.inverted.borderless.menu
   .ui.container
     = link_to image_tag('atrium-logo', id: 'logo'), '#', class: 'item'
-    = link_to 'Games', games_path, class: 'item'
+    .ui.tiny.dropdown.item
+      = link_to 'Games', games_path
+      / | Games
+      .menu
+        - @genres.each do |genre|
+          = link_to genre.name, games_path(genre: genre.name.downcase), class: 'item'
+        .ui.divider
+        = link_to 'Browse all games', games_path, class: 'item'

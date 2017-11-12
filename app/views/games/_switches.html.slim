@@ -1,5 +1,5 @@
 .ui.right.floated.small.header
-  .ui.inline.dropdown
+  .ui.inline.dropdown.switch
     | ORDER BY: 
     .text
     .menu
@@ -8,5 +8,4 @@
       .item Price: Low to High
       .item Price: High to Low
 .ui.small.header
-  => count
-  | Totally Legit Games
+  => pluralize(count, 'Totally Legit Game')

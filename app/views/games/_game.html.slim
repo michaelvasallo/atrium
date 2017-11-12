@@ -1,0 +1,12 @@
+= link_to game_path(game), class: 'game raised card'
+  .image
+    = image_tag game.image
+  .content
+    .ui.small.header
+      = game.title
+    .right.floated
+      - if game.on_sale?
+        .ui.grey.label
+          = number_to_percentage "-#{game.discount * 100}", precision: 0
+      .price-tag.ui.label
+        = number_to_currency game.sale_price, unit: 'C$'
