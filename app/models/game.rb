@@ -9,13 +9,9 @@ class Game < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  def self.filter_by_genre name
-    if name && genre = Genre.where("lower(name) = ?", name.downcase).first
-      genre.games
-    else
-      all
-    end
-  end
+  scope :genre, -> (genre) { joins(:genres).where 'lower(name) LIKE ?', genre.downcase }
+  scope :discount_over, -> (discount) { where 'discount > ?', discount.to_f / 100 }
+  scope :months_ago, -> (months) { where 'release_date >= ?', months.to_i.months.ago }
 
   def on_sale?
     discount.present?

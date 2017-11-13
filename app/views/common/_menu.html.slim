@@ -3,8 +3,10 @@
     = link_to image_tag('atrium-logo', id: 'logo'), '#', class: 'item'
     .ui.tiny.dropdown.item
       = link_to 'Games', games_path
-      / | Games
       .menu
+        = link_to 'On sale', games_path(price: 'discounted'), class: 'item'
+        = link_to 'New releases', games_path(months_ago: 3), class: 'item'
+        .ui.divider
         - @genres.each do |genre|
           = link_to genre.name, games_path(genre: genre.name.downcase), class: 'item'
         .ui.divider
