@@ -1,10 +1,10 @@
 #navbar.ui.huge.fixed.inverted.borderless.menu
   .ui.container
     = link_to image_tag('atrium-logo', id: 'logo'), '#', class: 'item'
-    .ui.tiny.dropdown.item
+    .ui.dropdown.item
       = link_to 'Games', games_path
       .menu
-        = link_to 'On sale', games_path(price: 'discounted'), class: 'item'
+        = link_to 'On sale', games_path(discount_over: 0), class: 'item'
         = link_to 'New releases', games_path(months_ago: 3), class: 'item'
         .ui.divider
         - @genres.each do |genre|

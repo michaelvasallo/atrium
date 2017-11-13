@@ -14,6 +14,6 @@ class GamesController < ApplicationController
   private
 
   def filtering_params(params)
-    params.slice(:genre, :discount_over, :months_ago)
+    params.slice(:genre, :discount_over, :months_ago, :query, :order_by)
   end
 end

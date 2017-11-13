@@ -1,15 +1,16 @@
 #filters.ui.stackable.menu
   .item
-    .ui.transparent.input.icon
-      input type='text' placeholder='Search...'
-      i.search.icon
+    = form_tag '', method: :get, enforce_utf8: false do
+      .ui.transparent.input.search.icon
+        = text_field_tag :query, params[:query], placeholder: 'Search...'
+        i.search.icon
   .right.menu
-    a.item
-      | Genre
+    .ui.item.pointing.dropdown.switch
+      | Order by
       i.dropdown.icon
-    a.item
-      | Company
-      i.dropdown.icon
-    a.item
-      | Release
-      i.dropdown.icon
+      .menu
+        = link_to 'Title', merge_params(order_by: 'title'), class: 'item'
+        = link_to 'Oldest', merge_params(order_by: 'release_asc'), class: 'item'
+        = link_to 'Newest', merge_params(order_by: 'release_desc'), class: 'item'
+        = link_to 'Price: Low to High', merge_params(order_by: 'price_asc'), class: 'item'
+        = link_to 'Price: High to Low', merge_params(order_by: 'price_desc'), class: 'item'
