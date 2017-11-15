@@ -2,9 +2,16 @@ game,genre
 Absolute Drift,Indie
 Absolute Drift,Racing
 Absolute Drift,Simulation
+Assassin's Creed IV Black Flag,Action
+Assassin's Creed IV Black Flag,Adventure
+Assassin's Creed IV Black Flag,RPG
 Assassin's Creed Origins,Action
 Assassin's Creed Origins,Adventure
 Assassin's Creed Origins,RPG
+Black Desert Online,Action
+Black Desert Online,Adventure
+Black Desert Online,Massively Multiplayer
+Black Desert Online,RPG
 Borderlands 2,Action
 Borderlands 2,Adventure
 Borderlands 2,RPG
@@ -12,6 +19,7 @@ Borderlands 2,Shooter
 Brawlhalla,Action
 Brawlhalla,Fighting
 Brawlhalla,Indie
+Brawlhalla,Platformer
 Call of Duty: WWII,Action
 Call of Duty: WWII,Shooter
 Counter-Strike: Global Offensive,Action
@@ -29,16 +37,34 @@ Distance,Action
 Distance,Indie
 Distance,Racing
 Factorio,Indie
-Factorio,Simulation
 Factorio,Strategy
 Final Fantasy XIV Online,Massively Multiplayer
 Final Fantasy XIV Online,RPG
+Football Manager 2017,Simulation
+Football Manager 2017,Sports
 Golf It!,Indie
 Golf It!,Simulation
 Golf It!,Sports
 Grand Theft Auto V,Action
 Grand Theft Auto V,Adventure
 Grand Theft Auto V,RPG
+Injustice 2,Action
+Injustice 2,Fighting
+Life is Strange,Adventure
+Life is Strange,RPG
+MapleStory,Adventure
+MapleStory,Massively Multiplayer
+MapleStory,RPG
+Mega Man Legacy Collection,Action
+Mega Man Legacy Collection,Platformer
+Mega Man Legacy Collection 2,Action
+Mega Man Legacy Collection 2,Platformer
+Naruto Shippuden: Ultimate Ninja Storm 4,Action
+Naruto Shippuden: Ultimate Ninja Storm 4,Adventure
+Naruto Shippuden: Ultimate Ninja Storm 4,Fighting
+Outlast 2,Action
+Outlast 2,Adventure
+Outlast 2,Indie
 PlayerUnknown's Battlegrounds,Action
 PlayerUnknown's Battlegrounds,Adventure
 PlayerUnknown's Battlegrounds,Massively Multiplayer
@@ -54,23 +80,32 @@ Redout: Enhanced Edition,Racing
 Rise of the Tomb Raider,Action
 Rise of the Tomb Raider,Adventure
 Rise of the Tomb Raider,RPG
+Rivals of Aether,Action
+Rivals of Aether,Fighting
+Rivals of Aether,Indie
+Rivals of Aether,Platformer
 Rocket League,Action
 Rocket League,Indie
 Rocket League,Racing
 Rocket League,Sports
+Rust,Adventure
+Rust,Indie
+Rust,Massively Multiplayer
+Rust,RPG
 Shadowverse,Strategy
 Sid Meier's Civilization VI,Strategy
 Stardew Valley,Indie
 Stardew Valley,RPG
 Stardew Valley,Simulation
 Strider,Action
-Strider,Adventure
 Strider,Platformer
 Tekken 7,Action
 Tekken 7,Fighting
 The Witcher 3: Wild Hunt,Action
 The Witcher 3: Wild Hunt,Adventure
 The Witcher 3: Wild Hunt,RPG
+This War of Mine,Adventure
+This War of Mine,Indie
 Tom Clancy's Rainbow Six Siege,Action
 Tom Clancy's Rainbow Six Siege,Shooter
 Tomb Raider,Action
@@ -78,3 +113,11 @@ Tomb Raider,Adventure
 Tomb Raider,RPG
 Ultimate Marvel vs. Capcom 3,Action
 Ultimate Marvel vs. Capcom 3,Fighting
+Vindictus,Action
+Vindictus,Adventure
+Vindictus,Massively Multiplayer
+Vindictus,RPG
+Warframe,Action
+Warframe,Adventure
+Warframe,RPG
+Warframe,Shooter
