@@ -1,4 +1,7 @@
 class Game < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   belongs_to :developer, class_name: 'Company', foreign_key: :developer_id
   belongs_to :publisher, class_name: 'Company', foreign_key: :publisher_id
 

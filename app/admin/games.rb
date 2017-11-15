@@ -1,7 +1,13 @@
 ActiveAdmin.register Game do
   config.sort_order = 'title_asc'
 
-  permit_params :title, :description, :price, :discount, :release_date, :image, :developer_id, :publisher_id, genre_ids: []
+  permit_params :title, :description, :price, :discount, :release_date, :image, :video, :developer_id, :publisher_id, genre_ids: []
+
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
 
   index do
     selectable_column

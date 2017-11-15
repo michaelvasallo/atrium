@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'games/(:genre)', to: 'games#index', as: 'games'
 
-  get 'game/:id', to: 'games#show', as: 'game', id: /\d+/
+  get 'game/:slug', to: 'games#show', as: 'game'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
