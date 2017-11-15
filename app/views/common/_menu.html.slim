@@ -8,6 +8,6 @@
         = link_to 'New releases', games_path(months_ago: 3), class: 'item'
         .ui.divider
         - @genres.each do |genre|
-          = link_to genre.name, games_path(genre: genre.name.downcase), class: 'item'
+          = link_to genre.name, games_path(genre: genre), class: 'item'
         .ui.divider
         = link_to 'Browse all games', games_path, class: 'item'

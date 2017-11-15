@@ -12,7 +12,7 @@ class Game < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  scope :genre, -> (genre) { joins(:genres).where 'lower(name) LIKE ?', genre.downcase }
+  scope :genre, -> (genre) { joins(:genres).where 'genres.slug = ?', genre }
   scope :discount_over, -> (discount) { where 'discount > ?', discount.to_f / 100 }
   scope :months_ago, -> (months) { where 'release_date >= ?', months.to_i.months.ago }
   scope :query, -> (term) { where 'title LIKE ?', "%#{term}%" }
