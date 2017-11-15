@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    @games = Game.page(params[:page]).per(16)
 
     filtering_params(params).each do |key, value|
       @games = @games.public_send(key, value) if value.present?

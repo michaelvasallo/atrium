@@ -57,5 +57,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'activeadmin', github: 'activeadmin'
 gem 'carrierwave', '~> 1.0'
 gem 'devise'
+gem 'kaminari'
 gem 'rubocop'
 gem 'slim-rails'
