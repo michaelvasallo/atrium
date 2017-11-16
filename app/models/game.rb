@@ -25,10 +25,6 @@ class Game < ApplicationRecord
       order release_date: :asc
     when 'release_desc'
       order release_date: :desc
-    when 'price_asc'
-      order price: :asc
-    when 'price_desc'
-      order price: :desc
     end
   end
 
