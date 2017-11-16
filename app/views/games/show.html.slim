@@ -3,6 +3,9 @@
 .ui.stackable.grid
   .ten.wide.column
     .ui.embed data-source="youtube" data-id="#{@game.video}"
+    - flash.each do |key, value|
+      .ui.message class="#{key}"
+        = value
     .ui.fluid.card
       .content
         .header
@@ -16,7 +19,7 @@
               span.original_price
                 = number_to_currency @game.price, unit: 'C$'
             = number_to_currency @game.sale_price, unit: 'C$'
-          .ui.primary.button
+          = link_to add_to_cart_path(@game.id), class: 'ui primary button'
             i.shop.icon
             | Add to Cart
   .six.wide.column
