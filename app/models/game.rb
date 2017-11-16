@@ -9,14 +9,15 @@ class Game < ApplicationRecord
   has_many :genres, through: :game_genres
 
   validates :title, :description, :price, :release_date, :image, :video, presence: true
+  validates :title, uniqueness: true
 
   mount_uploader :image, ImageUploader
 
-  scope :genre, -> (genre) { joins(:genres).where 'genres.slug = ?', genre }
-  scope :discount_over, -> (discount) { where 'discount > ?', discount.to_f / 100 }
-  scope :months_ago, -> (months) { where 'release_date >= ?', months.to_i.months.ago }
-  scope :query, -> (term) { where 'title LIKE ?', "%#{term}%" }
-  scope :order_by, -> (type) do
+  scope :genre, ->(genre) { joins(:genres).where 'genres.slug = ?', genre }
+  scope :discount_over, ->(discount) { where 'discount > ?', discount.to_f / 100 }
+  scope :months_ago, ->(months) { where 'release_date >= ?', months.to_i.months.ago }
+  scope :query, ->(term) { where 'title LIKE ?', "%#{term}%" }
+  scope :order_by, ->(type) do
     case type
     when 'title'
       order :title
@@ -26,7 +27,7 @@ class Game < ApplicationRecord
       order release_date: :desc
     when 'price_asc'
       order price: :asc
-    when 'price_asc'
+    when 'price_desc'
       order price: :desc
     end
   end

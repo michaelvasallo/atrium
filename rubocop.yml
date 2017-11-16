@@ -15,3 +15,6 @@ Documentation:
 
 Metrics/LineLength:
   Max: 99
+
+Style/Lambda:
+  EnforcedStyle: literal

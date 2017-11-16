@@ -26,9 +26,7 @@ public/uploads/tmp
 # Ignore Semantic UI generated folders
 semantic/dist/components
 semantic/dist/themes
-semantic/gulpfile.js
-semantic/src/definitions
-semantic/src/themes
-semantic/src/semantic.less
-semantic/src/theme.less
+semantic/src/*
+!semantic/src/site
+!semantic/src/theme.config
 semantic/tasks
