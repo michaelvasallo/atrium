@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031202354) do
+ActiveRecord::Schema.define(version: 20171117030031) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -62,20 +62,22 @@ ActiveRecord::Schema.define(version: 20171031202354) do
     t.decimal "price", precision: 8, scale: 2
     t.decimal "discount"
     t.date "release_date"
-    t.string "slug"
     t.string "image"
     t.string "video"
     t.integer "developer_id"
     t.integer "publisher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_games_on_slug"
   end
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_genres_on_slug"
   end
 
 end

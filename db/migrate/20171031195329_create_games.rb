@@ -6,7 +6,6 @@ class CreateGames < ActiveRecord::Migration[5.1]
       t.decimal :price, precision: 8, scale: 2
       t.decimal :discount
       t.date :release_date
-      t.string :slug
       t.string :image
       t.string :video
       t.integer :developer_id
