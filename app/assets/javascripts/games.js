@@ -16,4 +16,8 @@ $(document).on('turbolinks:load', function() {
     );
 
     $('.ui.dropdown.switch').dropdown();
+
+    $('#add-to-cart').on('click', function() {
+        $(this).addClass('loading');
+    });
 });

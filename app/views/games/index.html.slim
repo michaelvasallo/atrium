@@ -1,6 +1,6 @@
 = render partial: 'filters'
 .ui.link.four.doubling.cards
-  = render partial: 'game', collection: @games
+  = render @games
 .ui.centered.grid
   .center.aligned.column
     = paginate @games

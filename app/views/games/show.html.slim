@@ -3,9 +3,6 @@
 .ui.stackable.grid
   .ten.wide.column
     .ui.embed data-source="youtube" data-id="#{@game.video}"
-    - flash.each do |key, value|
-      .ui.message class="#{key}"
-        = value
     .ui.fluid.card
       .content
         .header
@@ -19,9 +16,14 @@
               span.original_price
                 = number_to_currency @game.price, unit: 'C$'
             = number_to_currency @game.sale_price, unit: 'C$'
-          = link_to add_to_cart_path(@game.id), class: 'ui primary button'
-            i.shop.icon
-            | Add to Cart
+          - if session[:cart].include? @game.slug
+            = button_to add_to_cart_path, id: 'add-to-cart', class: 'ui positive button disabled', method: :get, params: { game: @game }, remote: true
+                i.checkmark.icon
+                span In Cart
+          - else
+            = button_to add_to_cart_path, id: 'add-to-cart', class: 'ui primary button', method: :get, params: { game: @game }, remote: true
+                i.shop.icon
+                span Add to Cart
   .six.wide.column
     = image_tag @game.image, class: 'ui fluid image header'
     p = @game.description
