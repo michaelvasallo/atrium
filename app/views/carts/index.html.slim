@@ -1,3 +1,13 @@
 .ui.huge.header Your Cart
-.ui.divided.list
-  = render partial: 'cart_item', collection: @games
+- if @games.present?
+  / - sub_total = @games.map(&:price).reduce(:+)
+  .ui.stackable.grid
+    .twelve.wide.column
+      table.ui.unstackable.table
+        tbody
+          = render partial: 'cart_item', collection: @games
+    #summary.four.wide.column
+      = render partial: 'summary'
+- else
+  .ui.info.compact.message
+    | Your cart is empty

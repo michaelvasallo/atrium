@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'game/:slug', to: 'games#show', as: 'game'
 
   get 'cart', to: 'carts#index'
-  get 'cart/add/(:game)', to: 'carts#create', as: 'add_to_cart'
+  put 'cart', to: 'carts#create'
   delete 'cart', to: 'carts#delete'
 
   devise_for :admin_users, ActiveAdmin::Devise.config

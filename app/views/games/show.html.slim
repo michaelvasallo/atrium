@@ -16,16 +16,18 @@
               span.original_price
                 = number_to_currency @game.price, unit: 'C$'
             = number_to_currency @game.sale_price, unit: 'C$'
-          - if session[:cart].include? @game.slug
-            = button_to add_to_cart_path, id: 'add-to-cart', class: 'ui positive button disabled', method: :get, params: { game: @game }, remote: true
+          = form_tag cart_path, method: :put, remote: true, class: 'cart'
+            = hidden_field_tag :game, @game.slug
+            - if session[:cart].include? @game.slug
+              = button_tag class: 'ui positive button disabled'
                 i.checkmark.icon
                 span In Cart
-          - else
-            = button_to add_to_cart_path, id: 'add-to-cart', class: 'ui primary button', method: :get, params: { game: @game }, remote: true
+            - else
+              = button_tag class: 'ui primary button'
                 i.shop.icon
                 span Add to Cart
   .six.wide.column
-    = image_tag @game.image, class: 'ui fluid image header'
+    = image_tag @game.image, class: 'ui rounded image header'
     p = @game.description
     table.ui.very.basic.table
       tbody

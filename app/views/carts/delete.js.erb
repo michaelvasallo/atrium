@@ -1,0 +1,5 @@
+$('#<%= @cart_item_id %>').transition('fade left', 500, function() {
+    $(this).remove();
+});
+
+$('#summary').html("<%= j render partial: 'summary' %>")

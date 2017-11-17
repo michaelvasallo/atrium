@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   def index
-    @games = Game.where(slug: session[:cart])
+    calculate_totals
   end
 
   def create
@@ -8,6 +8,16 @@ class CartsController < ApplicationController
   end
 
   def delete
-    session[:cart].delete params[:game]
+    @cart_item_id = params[:game]
+    session[:cart].delete @cart_item_id
+
+    calculate_totals
+  end
+
+  private
+
+  def calculate_totals
+    @games = Game.where(slug: session[:cart])
+    @sub_total = @games.map(&:sale_price).reduce(:+)
   end
 end
