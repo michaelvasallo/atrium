@@ -16743,7 +16743,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background: #081920;
+  background: rgba(26, 26, 26, 0.9);
   color: rgba(255, 255, 255, 0.9);
 }
 

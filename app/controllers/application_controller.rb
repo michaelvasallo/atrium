@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_cart
-    session[:cart] = [] unless session[:cart]
+    session[:cart] ||= []
   end
 end

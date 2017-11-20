@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-    $('#navbar .dropdown').dropdown({
+    $('nav .dropdown').dropdown({
         on: 'hover'
     });
 });

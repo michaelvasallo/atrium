@@ -1,5 +1,24 @@
-body > .ui.container {
-    margin-top: 7em;
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    main {
+        flex: 1;
+        margin-top: 7em;
+    }
+
+    footer.ui.segment {
+        border-radius: 0rem;
+
+        span {
+            color: #696969;
+        }
+
+        span.pull.right {
+            float: right;
+        }
+    }
 }
 
 #logo {

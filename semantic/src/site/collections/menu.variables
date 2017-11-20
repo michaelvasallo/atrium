@@ -2,8 +2,8 @@
     User Variable Overrides
 *******************************/
 
-@background: @atrium-offwhite;
+@background: @white;
 @invertedBackground: rgba(26, 26, 26, 0.9);
 
-@dropdownBackground: @atrium-offwhite;
+@dropdownBackground: @white;
 @dropdownItemFontSize: @relativeSmall;
