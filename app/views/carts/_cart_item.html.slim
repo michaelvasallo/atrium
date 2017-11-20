@@ -4,7 +4,5 @@ tr id="#{cart_item.slug}"
   td = cart_item.title
   td.right.aligned.collapsing = number_to_currency cart_item.sale_price, unit: 'C$'
   td.center.aligned.collapsing
-    = form_tag cart_path, method: :delete, remote: true, class: 'cart'
-      = hidden_field_tag :game, cart_item.slug
-      = button_tag id: 'add-to-cart', class: 'ui basic button'
-        | Remove
+    = link_to 'Remove', cart_path(game: cart_item), remote: true, method: :delete,
+    class: 'cart ui basic button'

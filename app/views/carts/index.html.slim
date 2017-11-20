@@ -1,6 +1,5 @@
 .ui.huge.header Your Cart
 - if @games.present?
-  / - sub_total = @games.map(&:price).reduce(:+)
   .ui.stackable.grid
     .twelve.wide.column
       table.ui.unstackable.table

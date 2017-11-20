@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  get 'games/(:genre)', to: 'games#index', as: 'games'
-
-  get 'game/:slug', to: 'games#show', as: 'game'
+  resources :games, only: [:index, :show]
 
   get 'cart', to: 'carts#index'
   put 'cart', to: 'carts#create'
-  delete 'cart', to: 'carts#delete'
+  delete 'cart', to: 'carts#destroy'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

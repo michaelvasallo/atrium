@@ -1,9 +1,13 @@
 #filters {
-    margin-bottom: 2em
+    margin-bottom: 2em;
 }
 
-.original_price {
-    color: grey;
-    text-decoration: line-through;
-    margin-right: .5em
+#price {
+    cursor: default;
+
+    .original_price {
+        color: grey;
+        text-decoration: line-through;
+        margin-right: .5em;
+    }
 }

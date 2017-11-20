@@ -7,7 +7,7 @@ class CartsController < ApplicationController
     session[:cart] << params[:game] unless session[:cart].include? params[:game]
   end
 
-  def delete
+  def destroy
     @cart_item_id = params[:game]
     session[:cart].delete @cart_item_id
 
