@@ -20,11 +20,11 @@ class Game < ApplicationRecord
   scope :order_by, ->(type) do
     case type
     when 'title'
-      order :title
+      reorder :title
     when 'release_asc'
-      order release_date: :asc
+      reorder release_date: :asc
     when 'release_desc'
-      order release_date: :desc
+      reorder release_date: :desc
     end
   end
 

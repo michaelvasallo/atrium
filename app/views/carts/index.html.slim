@@ -1,12 +1,3 @@
 .ui.huge.header Your Cart
-- if @games.present?
-  .ui.stackable.grid
-    .twelve.wide.column
-      table.ui.unstackable.table
-        tbody
-          = render partial: 'cart_item', collection: @games
-    #summary.four.wide.column
-      = render partial: 'summary'
-- else
-  .ui.info.compact.message
-    | Your cart is empty
+#cart
+  = render partial: 'cart'

@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-    $('a.cart.button').on('click', function() {
+    $('main').on('click', 'a.cart.button', function() {
         $(this).addClass('loading');
     });
 });

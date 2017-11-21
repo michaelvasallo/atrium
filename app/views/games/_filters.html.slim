@@ -1,6 +1,6 @@
-#filters.ui.stackable.menu
+#filters.ui.menu
   .item
-    = form_tag '', method: :get, enforce_utf8: false do
+    = form_tag nil, method: :get, enforce_utf8: false do
       .ui.transparent.input.search.icon
         = text_field_tag :query, params[:query], placeholder: 'Search...'
         i.search.icon

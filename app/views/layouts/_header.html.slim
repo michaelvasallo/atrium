@@ -13,6 +13,5 @@ header
           .ui.divider
           = link_to 'Browse all games', games_path, class: 'item'
       .right.menu
-        .item
-          = link_to cart_path
-            i.shop.icon
+        #basket.item
+          = render partial: 'carts/basket'

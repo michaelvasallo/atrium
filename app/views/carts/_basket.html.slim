@@ -1,0 +1,4 @@
+= link_to cart_path
+  i.shop.icon
+  - if session[:cart]
+    .ui.horizontal.circular.label = session[:cart].size
