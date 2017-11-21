@@ -11,19 +11,19 @@ require 'csv'
 require 'date'
 
 def parse_csv file
-  csv_text = File.read(Rails.root.join('lib', 'seeds', file))
-  CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+  csv_text = File.read(Rails.root.join('lib', 'seeds', "#{file}.csv"))
+  CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
 end
 
-parse_csv('genres.csv').each do |row|
+parse_csv('genres').each do |row|
   Genre.create!(name: row['name'])
 end
 
-parse_csv('companies.csv').each do |row|
+parse_csv('companies').each do |row|
   Company.create!(name: row['name'])
 end
 
-parse_csv('games.csv').each do |row|
+parse_csv('games').each do |row|
   Game.create!(
     title: row['title'],
     description: row['description'],
@@ -37,9 +37,19 @@ parse_csv('games.csv').each do |row|
   )
 end
 
-parse_csv('game_genres.csv').each do |row|
+parse_csv('game_genres').each do |row|
   GameGenre.create!(
     game: Game.find_by(title: row['game']),
     genre: Genre.find_by(name: row['genre'])
+  )
+end
+
+parse_csv('provinces').each do |row|
+  Province.create!(
+    name: row['name'],
+    abbr: row['abbr'],
+    pst: row['pst'],
+    gst: row['gst'],
+    hst: row['hst']
   )
 end
