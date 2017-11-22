@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   root to: 'games#index'
 
-  resources :games, only: [:index, :show]
+  get 'games/(:genre)', to: 'games#index', as: 'games'
+  get 'game/:id', to: 'games#show', as: 'game'
 
   get 'cart', to: 'carts#index'
   put 'cart', to: 'carts#create'

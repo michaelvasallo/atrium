@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to :root
     else
       render :new
     end
@@ -15,5 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete :user_id
+    redirect_back fallback_location: :root
   end
 end
