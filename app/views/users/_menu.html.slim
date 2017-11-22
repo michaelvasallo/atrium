@@ -1,0 +1,12 @@
+- if current_user
+  = link_to user_path(current_user.username)
+    i.large.user.icon
+  .menu
+    .disabled.item = "Hello, #{current_user.full_name}"
+    = link_to 'Log Out', logout_path, method: :delete, class: 'item'
+- else
+  = link_to login_path
+    i.large.user.icon
+  .menu
+    = link_to 'Log In', login_path, method: :delete, class: 'item'
+    = link_to 'Sign Up', register_path, method: :delete, class: 'item'

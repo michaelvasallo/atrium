@@ -1,0 +1,16 @@
+.ui.stackable.center.aligned.grid
+  .six.wide.column
+    .ui.segment
+      .ui.huge.header Log in to your account
+      = form_tag login_path, class: 'ui form'
+        .field
+          .ui.left.icon.input
+            i.user.icon
+            = text_field_tag :username, nil, autofocus: true, placeholder: 'Username'
+        .field
+          .ui.left.icon.input
+            i.lock.icon
+            = password_field_tag :password, nil, placeholder: 'Password'
+        = submit_tag 'Log In', class: 'ui submit fluid blue button'
+
+
