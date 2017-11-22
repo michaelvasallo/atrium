@@ -1,2 +1,15 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+.ui.card
+  .content
+    .header
+      i.user.icon
+      = @user.username
+    .meta = @user.email
+    .meta = @user.full_name
+  .content
+    - if @user.address
+      .ui.sub.header Address
+      .meta = @user.address.line_1
+      .meta = @user.address.line_2
+      .meta = @user.address.line_3
+    - else
+      = link_to 'Create Address', :new_address, class: 'ui button'

@@ -1,0 +1,24 @@
+.ui.centered.stackable.grid
+  .eight.wide.column
+    .ui.clearing.segment
+      .ui.huge.header Create Address
+      = render partial: 'common/errors'
+      = form_for @address, url: :new_address, html: { class: 'ui form' } do |f|
+        .required.field
+          label Line 1
+          = f.text_field :line_1, autofocus: true, placeholder: 'Line 1'
+        .field
+          label Line 2
+          = f.text_field :line_2, placeholder: 'Line 2'
+        .fields
+          .ten.wide.required.field
+            label City
+            = f.text_field :city, placeholder: 'City'
+          .six.wide.required.field
+            label Postal Code
+            = f.text_field :postal_code, placeholder: 'Postal Code'
+        .required.field
+          label Province
+          = f.collection_select :province_id, @provinces, :id, :name,
+          { include_blank: true }, { class: 'ui fluid search selection dropdown' }
+        = f.submit 'Submit', class: 'ui right floated submit button'
