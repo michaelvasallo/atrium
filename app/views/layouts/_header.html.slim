@@ -12,6 +12,9 @@ header
             = link_to genre.name, games_path(genre: genre), class: 'item'
           .ui.divider
           = link_to 'Browse all games', games_path, class: 'item'
-      .right.menu
+      .right.icon.menu
+        .fitted.item
+          = link_to register_path
+            i.large.user.icon
         #basket.item
           = render partial: 'carts/basket'

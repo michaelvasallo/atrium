@@ -1,0 +1,10 @@
+- if flash[:errors]
+  .ui.error.message
+    i.close.icon
+    ruby:
+      count = flash[:errors].size
+      copula = count == 1 ? 'was' : 'were'
+    .header = "There #{copula} #{pluralize(count, 'error')} in your application"
+    ul.list
+      - flash[:errors].each do |e|
+        li = e
