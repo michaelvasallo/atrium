@@ -14,11 +14,21 @@ ActiveAdmin.register User do
 
   show do
     panel 'Orders' do
-      table_for user.orders do
-        column :id
-        column :status
-        column :total
+      user.orders.each do |order|
+        h3 "Order ##{order.id}"
+        table_for order.order_items do
+          column :game
+          column :price
+        end
+        attributes_table_for order do
+          row :id do
+            link_to order.id, admin_order_path(order)
+          end
+          row :status
+          row :total
+        end
       end
+
     end
     default_main_content
   end

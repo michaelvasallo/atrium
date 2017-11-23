@@ -27,7 +27,7 @@
           - current_user.orders.each do |order|
             tr
               td = order.status
-              td.right.aligned.collapsing = number_to_currency order.total, unit: 'C$'
+              td.right.aligned.collapsing = number_to_currency order.grand_total, unit: 'C$'
               td.right.aligned.collapsing
                 - if order.paid?
                   = link_to 'View Order', order, class: 'ui button'

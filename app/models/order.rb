@@ -9,11 +9,19 @@ class Order < ApplicationRecord
     status == 'Paid'
   end
 
-  def total
-    sub_total = order_items.map(&:price).reduce(:+)
-    taxes = { PST: pst, GST: gst, HST: hst }.reject { |k, v| v.zero? }
+  def sub_total
+    order_items.map(&:price).reduce(:+)
+  end
 
-    tax_amounts = taxes.map { |k, v| (sub_total * v).round(2) }
+  def taxes
+    { PST: pst, GST: gst, HST: hst }.reject { |k, v| v.zero? }
+  end
+
+  def tax_amounts
+    taxes.map { |k, v| (sub_total * v).round(2) }
+  end
+
+  def grand_total
     sub_total + tax_amounts.reduce(:+)
   end
 

@@ -1,13 +1,13 @@
 class ChargesController < ApplicationController
   def new
     @order = Order.find(params[:order])
-    @amount = dollars_to_cents(@order.total)
+    @amount = dollars_to_cents(@order.grand_total)
     @description = "Atrium Order by #{@order.user.full_name}"
   end
 
   def create
     order = Order.find(params[:order])
-    amount = dollars_to_cents(order.total)
+    amount = dollars_to_cents(order.grand_total)
 
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],

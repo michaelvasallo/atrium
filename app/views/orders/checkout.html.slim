@@ -3,4 +3,8 @@
   .twelve.wide.column
     table.ui.unstackable.table
       tbody = render partial: 'order_item', collection: @games
-  .four.wide.column = render partial: 'summary'
+  .four.wide.column = render partial: 'summary',
+    locals: { sub_total: @sub_total,
+              taxes: @taxes,
+              tax_amounts: @tax_amounts,
+              grand_total: @grand_total }
