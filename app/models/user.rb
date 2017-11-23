@@ -18,6 +18,8 @@ class User < ApplicationRecord
   validates :username, length: { minimum: 3 }
   validates :password, length: { in: 8..128 }, confirmation: true
 
+  scope :with_orders, -> { joins(:orders).distinct }
+
   def full_name
     "#{first_name} #{last_name}"
   end

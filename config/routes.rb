@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   put 'cart', to: 'carts#create'
   delete 'cart', to: 'carts#destroy'
 
+  get 'order/:id', to: 'orders#show', as: :order
   get 'checkout', to: 'orders#checkout'
   post 'checkout', to: 'orders#create'
+
+  resources :charges, only: [:new, :create]
 
   get 'register', to: 'users#new'
   post 'register', to: 'users#create'

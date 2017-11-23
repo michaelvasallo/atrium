@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
     province = current_user.province
     
     order = current_user.orders.create!(
-      status: 'key_pending',
+      status: 'Pending',
       pst: province.pst,
       gst: province.gst,
       hst: province.hst

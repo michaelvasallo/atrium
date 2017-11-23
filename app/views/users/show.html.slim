@@ -2,16 +2,35 @@
   .ui.success.message
     i.close.icon
     .header = flash[:success]
-.ui.card
-  .content
-    .header = @user.full_name
-    .meta = @user.email
-    .meta = @user.username
-  .content
-    - if @user.address
-      .ui.sub.header Address
-      .meta = @user.address.line_1
-      .meta = @user.address.line_2
-      .meta = @user.address.line_3
-    - else
-      = link_to 'Create Address', new_address_path(@user.username), class: 'ui button'
+.ui.stackable.grid
+  .six.wide.column
+    .ui.card
+      .content
+        .header = @user.full_name
+        .meta = @user.email
+        .meta = @user.username
+      .content
+        - if @user.address
+          .ui.sub.header Address
+          .meta = @user.address.line_1
+          .meta = @user.address.line_2
+          .meta = @user.address.line_3
+        - else
+          = link_to 'Create Address', new_address_path(@user.username), class: 'ui button'
+  .ten.wide.column
+    - if current_user == @user
+      table.ui.selectable.unstackable.table
+        thead
+          tr
+            th.center.aligned colspan=3 Orders
+        tbody
+          - current_user.orders.each do |order|
+            tr
+              td = order.status
+              td.right.aligned.collapsing = number_to_currency order.total, unit: 'C$'
+              td.right.aligned.collapsing
+                - if order.paid?
+                  = link_to 'View Order', order, class: 'ui button'
+                - else
+                  = link_to 'Pay Order', new_charge_path(order: order), class: 'ui button'
+
