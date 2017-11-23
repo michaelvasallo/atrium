@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   put 'cart', to: 'carts#create'
   delete 'cart', to: 'carts#destroy'
 
+  get 'checkout', to: 'orders#checkout'
+  post 'checkout', to: 'orders#create'
+
   get 'register', to: 'users#new'
   post 'register', to: 'users#create'
   get 'user/:username', to: 'users#show', as: :user

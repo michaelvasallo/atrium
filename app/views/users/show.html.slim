@@ -1,10 +1,12 @@
+- if flash[:success]
+  .ui.success.message
+    i.close.icon
+    .header = flash[:success]
 .ui.card
   .content
-    .header
-      i.user.icon
-      = @user.username
+    .header = @user.full_name
     .meta = @user.email
-    .meta = @user.full_name
+    .meta = @user.username
   .content
     - if @user.address
       .ui.sub.header Address
@@ -12,4 +14,4 @@
       .meta = @user.address.line_2
       .meta = @user.address.line_3
     - else
-      = link_to 'Create Address', :new_address, class: 'ui button'
+      = link_to 'Create Address', new_address_path(@user.username), class: 'ui button'

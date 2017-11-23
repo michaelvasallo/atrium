@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   def index
-    calculate_totals
+    load_cart
   end
 
   def create
@@ -11,12 +11,12 @@ class CartsController < ApplicationController
     @cart_item_id = params[:game]
     session[:cart].delete @cart_item_id
 
-    calculate_totals
+    load_cart
   end
 
   private
 
-  def calculate_totals
+  def load_cart
     @games = Game.where(slug: session[:cart])
     @sub_total = @games.map(&:sale_price).reduce(:+)
   end

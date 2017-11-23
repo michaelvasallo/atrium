@@ -2,30 +2,7 @@
   .ui.stackable.grid
     .twelve.wide.column
       table.ui.unstackable.table
-        tbody
-          = render partial: 'cart_item', collection: @games
-    .four.wide.column
-      table.ui.unstackable.table
-        tbody
-          tr
-            td Sub Total
-            td.right.aligned.collapsing = number_to_currency @sub_total, unit: 'C$'
-          tr
-            td PST
-            td.right.aligned.collapsing
-          tr
-            td GST
-            td.right.aligned.collapsing
-          tr
-            td HST
-            td.right.aligned.collapsing
-          tr
-            td Grand Total
-            td.right.aligned.collapsing
-        tfoot
-          tr
-            th.center.aligned.collapsing colspan=2
-              .ui.positive.button Checkout
+        tbody = render partial: 'cart_item', collection: @games
+    .four.wide.column = render partial: 'summary'
 - else
-  .ui.info.compact.message
-    | Your cart is empty
+  .ui.info.compact.message Your cart is empty

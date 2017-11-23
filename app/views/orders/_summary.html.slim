@@ -1,0 +1,16 @@
+table.ui.unstackable.table
+  tbody
+    tr
+      td Sub Total
+      td.right.aligned.collapsing = number_to_currency @sub_total, unit: 'C$'
+      - @taxes.each_with_index do |(type, tax), i|
+        tr
+          td = "#{type.to_s} (#{number_to_percentage tax * 100, precision: 0})"
+          td.right.aligned.collapsing = number_to_currency @tax_amounts[i], unit: 'C$'
+      tr
+        td Grand Total
+        td.right.aligned.collapsing = number_to_currency @grand_total, unit: 'C$'
+  tfoot
+    tr
+      th.center.aligned.collapsing colspan=2
+        = link_to 'Pay with Stripe', :checkout, method: :post, class: 'ui blue button'

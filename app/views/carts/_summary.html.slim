@@ -1,0 +1,14 @@
+table.ui.unstackable.table
+  tbody
+    tr
+      td Sub Total
+      td.right.aligned.collapsing = number_to_currency @sub_total, unit: 'C$'
+  tfoot
+    tr
+      th.center.aligned.collapsing colspan=2
+        - if current_user && current_user.address
+          = link_to 'Checkout', :checkout, class: 'ui blue button'
+        - elsif current_user
+          = link_to 'Create Address', new_address_path(current_user.username), class: 'ui button'
+        - else
+          = link_to 'Log In', :login, class: 'ui button'

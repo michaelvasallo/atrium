@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.save!
     session[:user_id] = @user.id
-    render :show
+    redirect_to new_address_path(@user.username)
   rescue ActiveRecord::RecordInvalid
     flash[:errors] = @user.errors.full_messages
     render :new

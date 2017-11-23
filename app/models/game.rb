@@ -8,7 +8,7 @@ class Game < ApplicationRecord
   has_many :game_genres, dependent: :destroy
   has_many :genres, through: :game_genres
 
-  validates :title, :description, :price, :release_date, :image, :video, presence: true
+  validates :title, :price, :release_date, :image, :video, :developer, :publisher, presence: true
   validates :title, uniqueness: true
 
   mount_uploader :image, ImageUploader
