@@ -7,7 +7,7 @@ table.ui.unstackable.table
     tr
       th.center.aligned.collapsing colspan=2
         - if current_user && current_user.address
-          = link_to 'Checkout', :checkout, class: 'ui blue button'
+          = link_to 'Checkout', :checkout, class: 'ui blue cart button'
         - elsif current_user
           = link_to 'Create Address', new_address_path(current_user.username), class: 'ui button'
         - else

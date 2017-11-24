@@ -4,13 +4,6 @@ class UsersController < ApplicationController
     @address = Address.new
   end
 
-  def show
-    @user = User.find_by!(username: params[:username])
-  end
-
-  def edit
-  end
-
   def create
     @user = User.new(user_params)
     @user.save!
@@ -19,6 +12,16 @@ class UsersController < ApplicationController
   rescue ActiveRecord::RecordInvalid
     flash[:errors] = @user.errors.full_messages
     render :new
+  end
+
+  def show
+    @user = User.find_by!(username: params[:username])
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private

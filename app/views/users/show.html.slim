@@ -3,8 +3,8 @@
     i.close.icon
     .header = flash[:success]
 .ui.stackable.grid
-  .six.wide.column
-    .ui.card
+  .five.wide.column
+    .ui.fluid.card
       .content
         .header = @user.full_name
         .meta = @user.email
@@ -17,7 +17,7 @@
           .meta = @user.address.line_3
         - else
           = link_to 'Create Address', new_address_path(@user.username), class: 'ui button'
-  .ten.wide.column
+  .eleven.wide.column
     - if current_user == @user
       table.ui.selectable.unstackable.table
         thead

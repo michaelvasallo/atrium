@@ -20,13 +20,13 @@ Rails.application.routes.draw do
   get 'register', to: 'users#new'
   post 'register', to: 'users#create'
   get 'user/:username', to: 'users#show', as: :user
-  # get 'user/:username/edit', to: 'users#edit', as: :edit_user
-  # patch 'user/:username', to: 'users#update', as: :update_user
+  get 'user/:username/edit', to: 'users#edit', as: :edit_user
+  patch 'user/:username/edit', to: 'users#update'
 
   get 'user/:username/address/new', to: 'addresses#new', as: :new_address
   post 'user/:username/address/new', to: 'addresses#create'
-  # get 'user/:username/address/edit', to: 'addresses#edit'
-  # patch 'user/:username/address', to: 'addresses#update'
+  get 'user/:username/address/edit', to: 'addresses#edit', as: :edit_address
+  patch 'user/:username/address/edit', to: 'addresses#update'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

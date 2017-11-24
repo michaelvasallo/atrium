@@ -1,6 +1,11 @@
 class ChargesController < ApplicationController
+  before_action :authenticate_user
+
   def new
     @order = Order.find(params[:order])
+
+    authorize_user @order.user
+
     session[:order] = @order.id
     @amount = dollars_to_cents(@order.grand_total)
     @description = "Atrium Order by #{@order.user.full_name}"
