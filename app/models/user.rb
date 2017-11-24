@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   has_one :address, dependent: :destroy
   has_one :province, through: :address
-  has_many :orders
+  has_many :orders, dependent: :restrict_with_error
 
   validates :username, :email, :first_name, :last_name, presence: true
   validates :username, :email, uniqueness: { message: 'already in use' }

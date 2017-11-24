@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete :user_id
+    session.delete :cart
     redirect_back fallback_location: :root
   end
 end

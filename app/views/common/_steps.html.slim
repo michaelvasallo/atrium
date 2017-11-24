@@ -1,0 +1,16 @@
+.ui.three.steps
+  .step class=('active' if controller_name == 'carts')
+    i.shop.icon
+    .content
+      .title Cart
+      .description Organize your purchases
+  .step class=((controller_name == 'orders' && 'active' or controller_name == 'carts' && 'disabled'))
+    i.dollar.icon
+    .content
+      .title Order
+      .description Confirm your order
+  .step class=(controller_name == 'charges' ? 'active' : 'disabled')
+    i.stripe.icon
+    .content
+      .title Payment
+      .description Pay for your order

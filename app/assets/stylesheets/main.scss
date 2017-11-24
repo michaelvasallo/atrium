@@ -3,6 +3,11 @@ body {
     min-height: 100vh;
     flex-direction: column;
 
+    #logo {
+        width: 9em;
+        margin: .05em 0;
+    }
+
     main {
         flex: 1;
         margin-top: 7em;
@@ -19,9 +24,4 @@ body {
             float: right;
         }
     }
-}
-
-#logo {
-    width: 9em;
-    margin: .05em 0;
 }

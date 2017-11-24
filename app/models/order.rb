@@ -14,11 +14,11 @@ class Order < ApplicationRecord
   end
 
   def taxes
-    { PST: pst, GST: gst, HST: hst }.reject { |k, v| v.zero? }
+    { PST: pst, GST: gst, HST: hst }.reject { |_, v| v.zero? }
   end
 
   def tax_amounts
-    taxes.map { |k, v| (sub_total * v).round(2) }
+    taxes.map { |_, v| (sub_total * v).round(2) }
   end
 
   def grand_total

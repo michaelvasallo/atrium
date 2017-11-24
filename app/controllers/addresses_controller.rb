@@ -21,10 +21,10 @@ class AddressesController < ApplicationController
   end
 
   def address_params
-      params.require(:address).permit(:line_1,
-                                      :line_2,
-                                      :city,
-                                      :postal_code,
-                                      :province_id)
+    params.require(:address).permit(:line_1,
+                                    :line_2,
+                                    :city,
+                                    :postal_code,
+                                    :province_id)
   end
 end

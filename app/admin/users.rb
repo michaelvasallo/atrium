@@ -25,10 +25,9 @@ ActiveAdmin.register User do
             link_to order.id, admin_order_path(order)
           end
           row :status
-          row :total
+          row :grand_total
         end
       end
-
     end
     default_main_content
   end

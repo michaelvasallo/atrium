@@ -5,35 +5,40 @@ class OrdersController < ApplicationController
   end
 
   def create
-    create_order
+    order = create_order
     session[:cart].clear
 
-    flash[:success] = 'Your purchases were successfully added to your library'
-    redirect_to user_path(current_user.username)
+    redirect_to new_charge_path(order: order.id)
   end
 
   private
 
   def load_order
     @games = Game.where(slug: session[:cart])
-    @sub_total = @games.map(&:sale_price).reduce(:+)
+    @sub_total = calculate_sub_total @games
     province = current_user.province
 
-    if current_user && current_user.address
-      @taxes = {
-        PST: province.pst,
-        GST: province.gst,
-        HST: province.hst
-      }.reject { |k, v| v.zero? }
+    @taxes = taxes_to_hash province.pst, province.gst, province.hst
 
-      @tax_amounts = @taxes.map { |k, v| (@sub_total * v).round(2) }
-      @grand_total = @sub_total + @tax_amounts.reduce(:+)
-    end
+    @tax_amounts = calculate_amounts @sub_total, @taxes
+    @grand_total = @sub_total + @tax_amounts.reduce(:+)
+  end
+
+  def calculate_sub_total(games)
+    games.map(&:sale_price).reduce(:+)
+  end
+
+  def taxes_to_hash(pst, gst, hst)
+    { PST: pst, GST: gst, HST: hst }.reject { |_, v| v.zero? }
+  end
+
+  def calculate_amounts(sub_total, taxes)
+    taxes.map { |_, v| (sub_total * v).round(2) }
   end
 
   def create_order
     province = current_user.province
-    
+
     order = current_user.orders.create!(
       status: 'Pending',
       pst: province.pst,
@@ -42,5 +47,7 @@ class OrdersController < ApplicationController
     )
 
     @games.each { |game| order.create_order_item(game) }
+
+    order
   end
 end

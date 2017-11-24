@@ -12,5 +12,6 @@
             i.lock.icon
             = password_field_tag :password, nil, placeholder: 'Password'
         = submit_tag 'Log In', class: 'ui submit fluid blue button'
-
+    | Don't have an account?
+    =< link_to 'Sign Up', :register
 

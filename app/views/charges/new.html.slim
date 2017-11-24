@@ -1,3 +1,4 @@
+= render partial: 'common/steps'
 .ui.huge.header = "Pay for Order ##{@order.id}"
 .ui.stackable.grid
   .twelve.wide.column
@@ -7,22 +8,14 @@
         collection: @order.order_items.map { |x| x.game }
   .four.wide.column
     table.ui.unstackable.table
-      tbody
-        tr
-          td Sub Total
-          td.right.aligned.collapsing = number_to_currency @order.sub_total, unit: 'C$'
-        - @order.taxes.each_with_index do |(type, tax), i|
-          tr
-            td = "#{type.to_s} (#{number_to_percentage tax * 100, precision: 0})"
-            td.right.aligned.collapsing = number_to_currency @order.tax_amounts[i], unit: 'C$'
-        tr
-          td Grand Total
-          td.right.aligned.collapsing = number_to_currency @order.grand_total, unit: 'C$'
+      = render partial: 'orders/totals', locals: { sub_total: @order.sub_total,
+                                                   taxes: @order.taxes,
+                                                   tax_amounts: @order.tax_amounts,
+                                                   grand_total: @order.grand_total }
       tfoot
         tr
           th.center.aligned.collapsing colspan=2
             = form_tag :charges
-              = hidden_field_tag 'order', @order.id
               script.stripe-button[src = "https://checkout.stripe.com/checkout.js"
                                    data-key = Rails.configuration.stripe[:publishable_key]
                                    data-description = @description

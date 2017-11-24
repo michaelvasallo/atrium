@@ -1,0 +1,12 @@
+tbody
+  tr
+    td Sub Total
+    td.right.aligned.collapsing = number_to_currency sub_total, unit: 'C$'
+  - taxes.each_with_index do |(type, tax), i|
+    tr
+      td = "#{type.to_s} (#{number_to_percentage tax * 100, strip_insignificant_zeros: true})"
+      td.right.aligned.collapsing = number_to_currency tax_amounts[i], unit: 'C$'
+  tr
+    td Grand Total
+    td.right.aligned.collapsing = number_to_currency grand_total, unit: 'C$'
+  
