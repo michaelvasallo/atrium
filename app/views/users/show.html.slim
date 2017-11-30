@@ -12,13 +12,15 @@
       .content
         - if @user.address
           .ui.sub.header Address
+          - if current_user == @user
+            = link_to 'Edit', edit_address_path(@user.username), class: 'right floated ui button'
           .meta = @user.address.line_1
           .meta = @user.address.line_2
           .meta = @user.address.line_3
         - else
           = link_to 'Create Address', new_address_path(@user.username), class: 'ui button'
   .eleven.wide.column
-    - if current_user == @user
+    - if current_user == @user && current_user.orders.any?
       table.ui.selectable.unstackable.table
         thead
           tr
@@ -32,5 +34,5 @@
                 - if order.paid?
                   = link_to 'View Order', order, class: 'ui button'
                 - else
-                  = link_to 'Pay Order', new_charge_path(order: order), class: 'ui button'
+                  = link_to 'Pay Order', payment_path(order: order), class: 'ui button'
 

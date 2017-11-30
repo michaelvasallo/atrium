@@ -15,13 +15,12 @@ Rails.application.routes.draw do
   get 'checkout', to: 'orders#checkout'
   post 'checkout', to: 'orders#create'
 
-  resources :charges, only: [:new, :create]
+  get 'payment', to: 'charges#new'
+  post 'payment', to: 'charges#create'
 
   get 'register', to: 'users#new'
   post 'register', to: 'users#create'
   get 'user/:username', to: 'users#show', as: :user
-  get 'user/:username/edit', to: 'users#edit', as: :edit_user
-  patch 'user/:username/edit', to: 'users#update'
 
   get 'user/:username/address/new', to: 'addresses#new', as: :new_address
   post 'user/:username/address/new', to: 'addresses#create'

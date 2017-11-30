@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
 
     charge_stripe order, amount
 
-    flash[:success] = 'Your order was successfully placed'
+    flash[:success] = 'Your games were successfully added to your library'
     redirect_to user_path(current_user.username)
   rescue Stripe::CardError => e
     flash[:error] = e.message
