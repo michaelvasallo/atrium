@@ -1,14 +1,15 @@
-= render partial: 'common/steps'
+= render 'common/steps'
+.ui.huge.header Your Order
 .ui.stackable.grid
   .twelve.wide.column
     table.ui.unstackable.table
       tbody = render partial: 'order_item', collection: @games
   .four.wide.column
     table.ui.unstackable.table
-      = render partial: 'totals', locals: { sub_total: @sub_total,
-                                            taxes: @taxes,
-                                            tax_amounts: @tax_amounts,
-                                            grand_total: @grand_total }
+      = render 'totals', { sub_total: @sub_total,
+                           taxes: @taxes,
+                           tax_amounts: @tax_amounts,
+                           grand_total: @grand_total }
       tfoot
         tr
           th.center.aligned.collapsing colspan=2

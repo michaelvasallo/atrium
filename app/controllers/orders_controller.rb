@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     order = create_order
     session[:cart].clear
 
-    redirect_to new_charge_path(order: order.id)
+    redirect_to payment_path(order: order.id)
   end
 
   private

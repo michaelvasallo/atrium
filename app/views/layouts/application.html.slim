@@ -9,7 +9,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
   body
-    = render partial: 'layouts/header'
+    = render 'layouts/header'
     main.ui.container
       = yield
-    = render partial: 'layouts/footer'
+    = render 'layouts/footer'

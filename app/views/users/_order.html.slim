@@ -1,0 +1,8 @@
+tr
+  td = order.status
+  td.right.aligned.collapsing = number_to_currency order.grand_total, unit: 'C$'
+  td.right.aligned.collapsing
+    - if order.paid?
+      = link_to 'View Order', order, class: 'ui basic button'
+    - else
+      = link_to 'Pay Order', payment_path(order: order), class: 'ui basic button'

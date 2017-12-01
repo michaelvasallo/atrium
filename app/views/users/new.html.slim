@@ -2,7 +2,7 @@
   .eight.wide.column
     .ui.clearing.segment
       .ui.huge.header Sign up for an account
-      = render partial: 'common/errors'
+      = render 'common/errors'
       = form_for @user, url: :register, html: { class: 'ui form' } do |f|
         .required.field
           label Username

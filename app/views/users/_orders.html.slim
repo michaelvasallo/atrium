@@ -1,0 +1,6 @@
+table.ui.unstackable.table
+  thead
+    tr
+      th.center.aligned colspan=3 Orders
+  tbody
+    = render partial: 'order', collection: current_user.orders

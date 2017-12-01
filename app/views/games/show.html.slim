@@ -13,9 +13,12 @@
             span.original_price
               = number_to_currency @game.price, unit: 'C$'
           = number_to_currency @game.sale_price, unit: 'C$'
-        - if session[:cart].include? @game.slug
-          = link_to cart_path(game: @game), remote: true, method: :put,
-          class: 'cart ui positive button disabled'
+        - if current_user && current_user.games.include?(@game)
+          .ui.primary.button.disabled
+            i.sidebar.icon
+            span In Library
+        - elsif session[:cart].include? @game.slug
+          .ui.positive.button.disabled
             i.checkmark.icon
             span In Cart
         - else

@@ -20,19 +20,7 @@
         - else
           = link_to 'Create Address', new_address_path(@user.username), class: 'ui button'
   .eleven.wide.column
-    - if current_user == @user && current_user.orders.any?
-      table.ui.selectable.unstackable.table
-        thead
-          tr
-            th.center.aligned colspan=3 Orders
-        tbody
-          - current_user.orders.each do |order|
-            tr
-              td = order.status
-              td.right.aligned.collapsing = number_to_currency order.grand_total, unit: 'C$'
-              td.right.aligned.collapsing
-                - if order.paid?
-                  = link_to 'View Order', order, class: 'ui button'
-                - else
-                  = link_to 'Pay Order', payment_path(order: order), class: 'ui button'
-
+    - if current_user == @user && @user.orders.any?
+      = render 'orders'
+    - if @user.games.any?
+      = render 'library'

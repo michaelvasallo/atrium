@@ -3,6 +3,6 @@
     .twelve.wide.column
       table.ui.unstackable.table
         tbody = render partial: 'cart_item', collection: @games
-    .four.wide.column = render partial: 'summary'
+    .four.wide.column = render 'summary'
 - else
   .ui.info.compact.message Your cart is empty

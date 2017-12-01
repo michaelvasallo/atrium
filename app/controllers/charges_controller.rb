@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
 
     charge_stripe order, amount
 
-    flash[:success] = 'Your games were successfully added to your library'
+    add_games_to_library order
     redirect_to user_path(current_user.username)
   rescue Stripe::CardError => e
     flash[:error] = e.message
@@ -41,5 +41,10 @@ class ChargesController < ApplicationController
 
   def dollars_to_cents(amount)
     (100 * amount.to_r).to_i
+  end
+
+  def add_games_to_library(order)
+    order.user.games += order.games
+    flash[:success] = 'Your games were successfully added to your library'
   end
 end

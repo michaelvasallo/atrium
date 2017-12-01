@@ -1,0 +1,5 @@
+table.ui.unstackable.table
+  thead
+    tr
+      th.center.aligned colspan=3 Library
+  tbody = render partial: 'game', collection: @user.games.order(:title)

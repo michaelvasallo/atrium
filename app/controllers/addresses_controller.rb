@@ -25,7 +25,7 @@ class AddressesController < ApplicationController
   def update
     @address = User.find_by!(username: params[:username]).address
     @address.update_attributes(address_params)
-    @address.save!
+
     redirect_to user_path(current_user.username)
   rescue ActiveRecord::RecordInvalid
     flash[:errors] = @address.errors.full_messages

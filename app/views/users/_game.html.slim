@@ -1,0 +1,4 @@
+tr
+  td.collapsing = link_to image_tag(game.image, class: 'ui tiny rounded image'), game_path(game)
+  td = game.title
+  td.right.aligned.collapsing = link_to 'Store Page', game_path(game), class: 'ui basic button'
