@@ -2,14 +2,22 @@ class OrdersController < ApplicationController
   before_action :authenticate_user
   before_action :load_order
 
-  def checkout
+  def show
+  end
+
+  def new
   end
 
   def create
     order = create_order
-    session[:cart].clear
-
-    redirect_to payment_path(order: order.id)
+    if order.grand_total == 0
+      order.status = 'Paid'
+      order.save
+      add_games_to_library order
+    else
+      session[:cart].clear
+      redirect_to payment_path(order: order.id)
+    end
   end
 
   private

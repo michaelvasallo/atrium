@@ -12,7 +12,7 @@
           - if @game.on_sale?
             span.original_price
               = number_to_currency @game.price, unit: 'C$'
-          = number_to_currency @game.sale_price, unit: 'C$'
+          = formatted_price @game
         - if current_user && current_user.games.include?(@game)
           .ui.primary.button.disabled
             i.sidebar.icon

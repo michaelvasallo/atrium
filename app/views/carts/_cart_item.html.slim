@@ -2,7 +2,7 @@ tr id="#{cart_item.slug}"
   td.collapsing
     = link_to image_tag(cart_item.image, class: 'ui tiny rounded image'), game_path(cart_item)
   td = cart_item.title
-  td.right.aligned.collapsing = number_to_currency cart_item.sale_price, unit: 'C$'
+  td.right.aligned.collapsing = formatted_price cart_item
   td.center.aligned.collapsing
     = link_to 'Remove', cart_path(game: cart_item), remote: true, method: :delete,
     class: 'cart ui basic button'

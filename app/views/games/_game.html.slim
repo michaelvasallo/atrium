@@ -9,4 +9,4 @@
         .ui.grey.label
           = number_to_percentage "-#{game.discount * 100}", precision: 0
       .price-tag.ui.label
-        = number_to_currency game.sale_price, unit: 'C$'
+        = formatted_price game

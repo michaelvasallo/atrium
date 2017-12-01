@@ -23,16 +23,24 @@ class Game < ApplicationRecord
   scope :order_by, ->(type) do
     case type
     when 'title'
-      reorder :title
+      order :title
     when 'release_asc'
-      reorder release_date: :asc
+      order release_date: :asc
     when 'release_desc'
-      reorder release_date: :desc
+      order release_date: :desc
+    when 'price_asc'
+      order 'price - price * discount ASC'
+    when 'price_desc'
+      order 'price - price * discount DESC'
     end
   end
 
+  def free?
+    price == 0
+  end
+
   def on_sale?
-    discount.present?
+    discount != 0
   end
 
   def sale_price
