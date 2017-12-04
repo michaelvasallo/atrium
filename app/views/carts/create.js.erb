@@ -1,4 +1,4 @@
-$('#basket').html("<%= j render 'carts/basket' %>")
+$('.basket').html("<%= j render 'carts/basket' %>")
 
 $('a.cart.button').toggleClass('primary positive').toggleClass('loading disabled')
     .children('i').toggleClass('shop checkmark').next().text('In Cart');

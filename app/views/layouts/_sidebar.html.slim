@@ -1,0 +1,29 @@
+.ui.right.sidebar.inverted.vertical.borderless.menu
+  .ui.inverted.accordion
+    .item
+      - if current_user
+        .title
+          i.dropdown.icon
+          = "Hello, #{current_user.full_name}"
+        .content
+          = link_to 'Profile', user_path(current_user.username), class: 'item'
+          = link_to 'Log Out', :logout, method: :delete, class: 'item'
+      - else
+        .title
+          i.dropdown.icon
+          | Hello, Guest
+        .content
+          = link_to 'Log In', :login, class: 'item'
+          = link_to 'Sign Up', :register, class: 'item'
+    .item
+      .title
+        i.dropdown.icon
+        | Games
+      .content
+        = link_to 'On sale', games_path(discount_over: 0), class: 'item'
+        = link_to 'New releases', games_path(months_ago: 3), class: 'item'
+        .ui.divider
+        - @genres.each do |genre|
+          = link_to genre.name, games_path(genre: genre), class: 'item'
+        .ui.divider
+        = link_to 'Browse all games', :games, class: 'item'

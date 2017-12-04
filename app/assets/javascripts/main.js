@@ -11,6 +11,17 @@ $(document).on('turbolinks:load', function() {
     });
 
     $('.message').on('click', '.close', function() {
-        $(this).closest('.message').transition('fade')
-    })
+        $(this).closest('.message').transition('fade');
+    });
+
+    $('header nav').on('click', '.toggle', function() {
+        $('.ui.sidebar').sidebar('setting', {
+            transition: 'overlay',
+            mobileTransition: 'overlay'
+        });
+
+        $('.ui.sidebar').sidebar('toggle');
+    });
+
+    $('.ui.accordion').accordion();
 });

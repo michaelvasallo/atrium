@@ -1,4 +1,4 @@
-$('#basket').html("<%= j render 'carts/basket' %>")
+$('.basket').html("<%= j render 'carts/basket' %>")
 
 $('#<%= @cart_item_id %>').transition('fade left', 500, function() {
     $('#cart').html("<%= j render 'cart' %>")
