@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   put 'cart', to: 'carts#create'
   delete 'cart', to: 'carts#destroy'
 
-  get 'order/:id', to: 'orders#show', as: :order
   get 'checkout', to: 'orders#new'
   post 'checkout', to: 'orders#create'
+  get 'order/:id', to: 'orders#show', as: :order
 
   get 'payment', to: 'charges#new'
   post 'payment', to: 'charges#create'

@@ -1,0 +1,11 @@
+.ui.huge.header = title "Order ##{@order.id}"
+.ui.stackable.grid
+  .twelve.wide.column
+    table.ui.unstackable.table
+      tbody = render partial: 'order_item', collection: @order.games
+  .four.wide.column
+    table.ui.unstackable.table
+      = render 'totals', { sub_total: @order.sub_total,
+                           taxes: @order.taxes,
+                           tax_amounts: @order.tax_amounts,
+                           grand_total: @order.grand_total }

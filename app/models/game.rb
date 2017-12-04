@@ -36,7 +36,7 @@ class Game < ApplicationRecord
   end
 
   def free?
-    price == 0
+    price.zero?
   end
 
   def on_sale?

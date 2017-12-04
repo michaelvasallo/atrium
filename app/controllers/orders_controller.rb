@@ -1,16 +1,13 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user
-  before_action :load_order
-
-  def show
-  end
+  before_action :load_order, except: :show
 
   def new
   end
 
   def create
     order = create_order
-    if order.grand_total == 0
+    if order.grand_total.zero?
       order.status = 'Paid'
       order.save
       add_games_to_library order
@@ -18,6 +15,12 @@ class OrdersController < ApplicationController
       session[:cart].clear
       redirect_to payment_path(order: order.id)
     end
+  end
+
+  def show
+    @order = Order.find(params[:id])
+
+    authorize_user @order.user
   end
 
   private
