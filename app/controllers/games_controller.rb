@@ -5,6 +5,8 @@ class GamesController < ApplicationController
     filter_params(params).each do |key, value|
       @games = @games.public_send(key, value) if value.present?
     end
+
+    @page_title = 'Games'
   end
 
   def show

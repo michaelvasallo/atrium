@@ -1,7 +1,7 @@
 .ui.centered.stackable.grid
   .eight.wide.column
     .ui.clearing.segment
-      .ui.huge.header Sign up for an account
+      .ui.huge.header = title 'Sign Up', 'Sign up for an account'
       = render 'common/errors'
       = form_for @user, url: :register, html: { class: 'ui form' } do |f|
         .required.field

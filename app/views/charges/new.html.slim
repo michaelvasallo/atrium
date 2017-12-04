@@ -1,5 +1,5 @@
 = render 'common/steps'
-.ui.huge.header = "Pay for Order ##{@order.id}"
+.ui.huge.header = title "Pay for Order ##{@order.id}"
 .ui.stackable.grid
   .twelve.wide.column
     table.ui.unstackable.table
@@ -20,4 +20,3 @@
                                    data-description = @description
                                    data-amount = @amount
                                    data-locale = 'auto']
-

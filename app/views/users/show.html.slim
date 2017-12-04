@@ -8,7 +8,7 @@
       .content
         .header = @user.full_name
         .meta = @user.email
-        .meta = @user.username
+        .meta = title @user.username
       .content
         - if @user.address
           .ui.sub.header Address
