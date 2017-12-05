@@ -22,6 +22,7 @@ public/uploads/tmp
 /yarn-error.log
 
 .byebug_history
+config/secrets.yml
 
 # Ignore Semantic UI generated folders
 semantic/dist/components
