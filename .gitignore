@@ -25,7 +25,8 @@ public/uploads/tmp
 
 # Ignore Semantic UI generated folders
 semantic/dist/components
-semantic/dist/themes
+semantic/dist/themes/*
+!semantic/dist/themes/default
 semantic/src/*
 !semantic/src/site
 !semantic/src/theme.config
