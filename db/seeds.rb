@@ -5,7 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@atrium.games', password: 'F8mg%@r4Hrwv104d', password_confirmation: 'F8mg%@r4Hrwv104d') if Rails.env.development?
+AdminUser.create!(
+  email: 'admin@atrium.com',
+  password: 'password',
+  password_confirmation: 'password'
+) if Rails.env.development?
 
 require 'csv'
 require 'date'

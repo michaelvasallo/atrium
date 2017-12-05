@@ -19,7 +19,7 @@ class Game < ApplicationRecord
   scope :genre, ->(genre) { joins(:genres).where 'genres.slug = ?', genre }
   scope :discount_over, ->(discount) { where 'discount > ?', discount.to_f / 100 }
   scope :months_ago, ->(months) { where 'release_date >= ?', months.to_i.months.ago }
-  scope :query, ->(term) { where 'title LIKE ?', "%#{term}%" }
+  scope :query, ->(term) { where 'title ILIKE ?', "%#{term}%" }
   scope :order_by, ->(type) do
     case type
     when 'title'
