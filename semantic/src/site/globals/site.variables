@@ -5,7 +5,7 @@
 /* Font */
 @fontName            : 'Open Sans';
 @headerFont          : 'Montserrat', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@googleFontRequest   : 'Montserrat:200|Open+Sans:400,400i,700,700i';
+@googleFontRequest   : 'Montserrat:300|Open+Sans:400,400i,700,700i';
 
 @fontPath            : 'https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/themes/default/assets/fonts';
 

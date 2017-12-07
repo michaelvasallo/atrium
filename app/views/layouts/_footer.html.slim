@@ -1,4 +1,8 @@
 footer.ui.padded.inverted.segment
   .ui.container
-    span.pull.right © 2017 Atrium Games LLC
-    span Developed by Michael Vasallo
+    .ui.horizontal.inverted.link.list
+      .item
+        span © 2017 Atrium LLC
+      = link_to 'About', :about, class: 'item'
+      = link_to 'Contact', :contact, class: 'item'
+    span.pull.right Developed by Michael Vasallo
