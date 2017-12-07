@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to :root
     else
+      flash[:error] = 'You have entered an incorrect username or password'
       render :new
     end
   end

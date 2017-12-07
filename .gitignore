@@ -25,9 +25,9 @@ public/uploads/tmp
 config/secrets.yml
 
 # Ignore Semantic UI generated folders
-semantic/dist/components
-semantic/dist/themes/*
-!semantic/dist/themes/default
+semantic/dist/*
+!semantic/dist/semantic.min.css
+!semantic/dist/semantic.min.js
 semantic/src/*
 !semantic/src/site
 !semantic/src/theme.config

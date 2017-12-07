@@ -1,5 +1,9 @@
 .ui.stackable.center.aligned.grid
   .six.wide.column
+    - if flash[:error]
+      .ui.error.message
+        i.close.icon
+        = flash[:error]
     .ui.segment
       .ui.huge.header = title 'Log In', 'Log in to your account'
       = form_tag login_path, class: 'ui form'
