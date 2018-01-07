@@ -9,9 +9,9 @@ class Game < ApplicationRecord
   has_many :genres, through: :game_genres
 
   has_many :ownerships, dependent: :destroy
-  has_many :users, through: :ownerships
+  has_many :owners, through: :ownerships, source: :user
 
-  validates :title, :price, :release_date, :image, :video, :developer, :publisher, presence: true
+  validates :title, :price, :release_date, :developer, :publisher, presence: true
   validates :title, uniqueness: true
 
   mount_uploader :image, ImageUploader
